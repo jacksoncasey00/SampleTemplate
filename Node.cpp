@@ -8,7 +8,7 @@ Node<ItemType>::Node(ItemType val) : m_value(val), m_next(nullptr)
 }
 
 template<class ItemType>
-Node<ItemType>::Node(ItemType val, Node<ItemType> * nextNode) : m_value(val), m_next(nextNode)
+Node<ItemType>::Node(ItemType val, std::shared_ptr<Node<ItemType>> nextNode) : m_value(val), m_next(nextNode)
 {
 
 }
@@ -19,7 +19,7 @@ void Node<ItemType>::setItem(const ItemType& val)
 }
 
 template<class ItemType>
-void Node<ItemType>::setNext(Node<ItemType>* nextNodePtr)
+void Node<ItemType>::setNext(std::shared_ptr<Node<ItemType>> nextNodePtr)
 {
 	m_next = nextNodePtr;
 }
@@ -31,7 +31,7 @@ int Node<ItemType>::getItem() const
 }
 
 template<class ItemType>
-Node<ItemType> * Node<ItemType>::getNext() const
+std::shared_ptr<Node<ItemType>>  Node<ItemType>::getNext() const
 {
 	return m_next;
 }
@@ -40,7 +40,7 @@ template<class ItemType>
 Node<ItemType>::~Node()
 {
 	std::cout << "Deleting node with value " << m_value << std::endl;
-	delete m_next;
+	
 	// you can recursively handle this which would require some code
 	// Otherwise you need to delete each node individuall in the owner of the Nodes (i.e. the LinkedList)
 }
