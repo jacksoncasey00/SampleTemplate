@@ -12,7 +12,7 @@ public:
 	/** Returns true  if list is empty, otherwise false */
 	virtual bool isEmpty() const ;
 	/** Returns the number of elements in the LinkedList */
-	virtual int getSize() const;
+	//virtual int getSize() const = 0;
 
 	/** Adds a value to the LinkedList.  Adds the value to the end of the List.  Return true if able to, otherwise false */
 	virtual bool add(ItemType val) = 0;
